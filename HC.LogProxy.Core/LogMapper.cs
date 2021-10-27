@@ -7,33 +7,25 @@ namespace HC.LogProxy.Core
 {
     public static class LogMapper
     {
-        public const string ReceivedAtField = "ReceivedAt";
-        public const string IdField = "Id";
-        public const string TextField = "Text";
-        public const string TitleField = "Title";
-        
         public static LogRecordDto FromLogRecord(LogRecord l)
         {
-            var receivedAt = l.Fields.GetValueOrDefault(ReceivedAtField, string.Empty);
-            DateTimeOffset.TryParse(receivedAt, out var parsedReceivedAt);
-            
             return new LogRecordDto
             {
-                Id = l.Fields.GetValueOrDefault(IdField, string.Empty),
-                ReceivedAt = parsedReceivedAt,
-                Text = l.Fields.GetValueOrDefault(TextField, string.Empty),
-                Title = l.Fields.GetValueOrDefault(TitleField, string.Empty)
+                Id = l.Fields.Id,
+                ReceivedAt = DateTimeOffset.Parse(l.Fields.ReceivedAt),
+                Text = l.Fields.Message,
+                Title = l.Fields.Summary
             };
         }
 
-        public static Dictionary<string, string> IntoFieldsMap(string title, string text, string id, DateTimeOffset receivedAt)
+        public static Fields IntoFields(string title, string text, string id, DateTimeOffset receivedAt)
         {
-            return new Dictionary<string, string>
+            return new Fields
             {
-                [ReceivedAtField] = receivedAt.ToString("o"),
-                [IdField] = id,
-                [TitleField] = title,
-                [TextField] = text,
+                Id = id,
+                ReceivedAt = receivedAt.ToString("o"),
+                Summary = title,
+                Message = text,
             };
         }
     }

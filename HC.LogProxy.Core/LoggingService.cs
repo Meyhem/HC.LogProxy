@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using HC.LogProxy.Core.Dto;
 using HC.LogProxy.Dal;
 using HC.LogProxy.Dal.Dto;
-using HC.LogProxy.Util;
+using HC.LogProxy.Shared;
 
 namespace HC.LogProxy.Core
 {
@@ -20,13 +20,13 @@ namespace HC.LogProxy.Core
             this.dateTimeOffsetProvider = dateTimeOffsetProvider;
         }
 
-        public async Task CreateLog(CreateLogRecordDto createLogRecordDto, CancellationToken ct)
+        public async Task CreateLogAsync(CreateLogRecordDto createLogRecordDto, CancellationToken ct)
         {
             await logRepository.AddLogsAsync(new[]
             {
                 new LogFields
                 {
-                    Fields = LogMapper.IntoFieldsMap(
+                    Fields = LogMapper.IntoFields(
                         createLogRecordDto.Title, 
                         createLogRecordDto.Text,
                         Guid.NewGuid().ToString(), 
@@ -35,7 +35,7 @@ namespace HC.LogProxy.Core
             }, ct);
         }
 
-        public async Task<LogRecordDto[]> GetLogAsync(CancellationToken ct)
+        public async Task<LogRecordDto[]> GetLogsAsync(CancellationToken ct)
         {
             var logs = await logRepository.GetAllLogsAsync(ct);
 

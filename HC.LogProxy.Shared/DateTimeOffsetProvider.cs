@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HC.LogProxy.Util
+namespace HC.LogProxy.Shared
 {
     public interface IDateTimeOffsetProvider
     {

@@ -2,10 +2,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace HC.LogProxy.Api.Controllers
+namespace HC.LogProxy.Api.Instrumentation
 {
     public class BaseController : Controller
     {
+        /// <summary>
+        /// Action execution interceptor automatically validating modelstate and responsing with Problem() json if invalid
+        /// </summary>
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             base.OnActionExecuting(context);

@@ -8,7 +8,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HC.LogProxy.Dal", "HC.LogPr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HC.LogProxy.Configuration", "HC.LogProxy.Configuration\HC.LogProxy.Configuration.csproj", "{38BAEC07-963E-482B-9DA9-85B2E93E980F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HC.LogProxy.Util", "HC.LogProxy.Util\HC.LogProxy.Util.csproj", "{142F8AB3-B10B-43F9-B1B7-6FAC969341B6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HC.LogProxy.Shared", "HC.LogProxy.Shared\HC.LogProxy.Shared.csproj", "{142F8AB3-B10B-43F9-B1B7-6FAC969341B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

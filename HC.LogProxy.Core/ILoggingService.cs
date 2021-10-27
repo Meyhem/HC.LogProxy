@@ -6,7 +6,7 @@ namespace HC.LogProxy.Core
 {
     public interface ILoggingService
     {
-        Task CreateLog(CreateLogRecordDto createLogRecordDto, CancellationToken ct);
-        Task<LogRecordDto[]> GetLogAsync(CancellationToken ct);
+        Task CreateLogAsync(CreateLogRecordDto createLogRecordDto, CancellationToken ct);
+        Task<LogRecordDto[]> GetLogsAsync(CancellationToken ct);
     }
 }

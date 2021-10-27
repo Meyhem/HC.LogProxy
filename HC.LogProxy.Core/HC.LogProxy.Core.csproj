@@ -6,8 +6,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\HC.LogProxy.Dal\HC.LogProxy.Dal.csproj" />
-      <ProjectReference Include="..\HC.LogProxy.Interface\HC.LogProxy.Interface.csproj" />
-      <ProjectReference Include="..\HC.LogProxy.Util\HC.LogProxy.Util.csproj" />
+      <ProjectReference Include="..\HC.LogProxy.Shared\HC.LogProxy.Shared.csproj" />
     </ItemGroup>
 
     <ItemGroup>

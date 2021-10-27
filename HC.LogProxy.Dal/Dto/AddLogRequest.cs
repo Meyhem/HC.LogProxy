@@ -9,6 +9,6 @@ namespace HC.LogProxy.Dal.Dto
 
     public class LogFields
     {
-        public Dictionary<string, string> Fields { get; set; }
+        public Fields Fields { get; set; }
     }
 }

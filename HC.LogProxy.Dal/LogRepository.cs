@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading;
 using System.Threading.Tasks;
@@ -25,15 +23,15 @@ namespace HC.LogProxy.Dal
             };
             
             var response = await client
-                .PostAsJsonAsync("/messages?maxRecords=3&view=Grid%20view", request, ct);
-
+                .PostAsJsonAsync("/v0/appD1b1YjWoXkUJwR/Messages?maxRecords=3&view=Grid%20view", request, ct);
+            var str = await response.Content.ReadAsStringAsync(ct);
             response.EnsureSuccessStatusCode();
         }
 
         public async Task<LogRecord[]> GetAllLogsAsync(CancellationToken ct)
         {
             var response = await client
-                .GetFromJsonAsync<GetLogResponse>("/messages?maxRecords=3&view=Grid%20view", ct);
+                .GetFromJsonAsync<GetLogResponse>("/v0/appD1b1YjWoXkUJwR/Messages?maxRecords=3&view=Grid%20view", ct);
 
             return response.Records;
         }

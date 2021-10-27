@@ -11,7 +11,7 @@ namespace HC.LogProxy.Dal.Dto
     public class LogRecord
     {
         public string Id { get; set; }
-        public Dictionary<string, string> Fields { get; set; }
+        public Fields Fields { get; set; }
         public DateTimeOffset CreatedTime { get; set; }
     }
 }
