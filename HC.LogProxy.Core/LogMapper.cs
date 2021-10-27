@@ -9,10 +9,17 @@ namespace HC.LogProxy.Core
     {
         public static LogRecordDto FromLogRecord(LogRecord l)
         {
+            DateTimeOffset? receivedAt = null;
+            
+            if (DateTimeOffset.TryParse(l.Fields.ReceivedAt, out var recv))
+            {
+                receivedAt = recv;
+            }
+            
             return new LogRecordDto
             {
                 Id = l.Fields.Id,
-                ReceivedAt = DateTimeOffset.Parse(l.Fields.ReceivedAt),
+                ReceivedAt = receivedAt,
                 Text = l.Fields.Message,
                 Title = l.Fields.Summary
             };

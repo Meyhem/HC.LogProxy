@@ -30,7 +30,7 @@ namespace HC.LogProxy.Api.Features.Messages
         public async Task<IActionResult> GetAsync(CancellationToken cancellationToken)
         {
             var logs = (await loggingService.GetLogsAsync(cancellationToken))
-                .Select(l => new LogRecord()
+                .Select(l => new LogRecord
                 {
                     Id = l.Id,
                     Text = l.Text,

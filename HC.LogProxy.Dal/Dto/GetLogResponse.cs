@@ -6,6 +6,7 @@ namespace HC.LogProxy.Dal.Dto
     public class GetLogResponse
     {
         public LogRecord[] Records { get; set; }
+        public string Offset { get; set; }
     }
     
     public class LogRecord

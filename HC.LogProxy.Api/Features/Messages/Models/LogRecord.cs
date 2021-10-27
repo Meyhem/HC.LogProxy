@@ -22,6 +22,6 @@ namespace HC.LogProxy.Api.Features.Messages.Models
         /// <summary>
         /// Timestamp of reception of this log instance
         /// </summary>
-        public DateTimeOffset ReceivedAt { get; set; }
+        public DateTimeOffset? ReceivedAt { get; set; }
     }
 }
