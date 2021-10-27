@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\HC.LogProxy.Dal\HC.LogProxy.Dal.csproj" />
+      <ProjectReference Include="..\HC.LogProxy.Interface\HC.LogProxy.Interface.csproj" />
+      <ProjectReference Include="..\HC.LogProxy.Util\HC.LogProxy.Util.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+        <HintPath>..\..\..\Program Files\dotnet\shared\Microsoft.AspNetCore.App\5.0.6\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>
