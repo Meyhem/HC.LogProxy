@@ -6,7 +6,7 @@ namespace HC.LogProxy.Dal
     {
         public static IServiceCollection AddLogProxyDal(this IServiceCollection services)
         {
-            return services.AddTransient<ILogRepository, LogRepository>();
+            return services.AddTransient<ILogRepository, AirTableLogRepository>();
         }
     }
 }

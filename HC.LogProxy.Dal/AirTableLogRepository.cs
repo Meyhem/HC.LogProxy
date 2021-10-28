@@ -4,15 +4,19 @@ using System.Net.Http.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using HC.LogProxy.Dal.Dto;
+using Microsoft.Extensions.Logging;
 
 namespace HC.LogProxy.Dal
 {
-    public class LogRepository : ILogRepository
+    public class AirTableLogRepository : ILogRepository
     {
+        private readonly ILogger<AirTableLogRepository> logger;
+        private const int MaxFetchCountThreshold = 5000;
         private readonly HttpClient client;
 
-        public LogRepository(IHttpClientFactory httpClientFactory)
+        public AirTableLogRepository(IHttpClientFactory httpClientFactory, ILogger<AirTableLogRepository> logger)
         {
+            this.logger = logger;
             client = httpClientFactory.CreateClient("AirTableClient");
         }
 
@@ -24,7 +28,7 @@ namespace HC.LogProxy.Dal
             };
 
             var response = await client.PostAsJsonAsync(
-                "/v0/appD1b1YjWoXkUJwR/Messages?maxRecords=3&view=Grid%20view",
+                "/v0/appD1b1YjWoXkUJwR/Messages",
                 request,
                 ct
             );
@@ -40,7 +44,7 @@ namespace HC.LogProxy.Dal
             do
             {
                 var response = await client.GetAsync(
-                    $"/v0/appD1b1YjWoXkUJwR/Messages?maxRecords=1&view=Grid%20view&offset={offset}",
+                    $"/v0/appD1b1YjWoXkUJwR/Messages?view=Grid%20view&offset={offset}",
                     ct
                 );
 
@@ -51,6 +55,12 @@ namespace HC.LogProxy.Dal
 
                 logRecords.AddRange(data.Records);
 
+                if (logRecords.Count > MaxFetchCountThreshold)
+                {
+                    logger.LogWarning("Hit MaxFetchCountThreshold={MaxFetchCountThreshold}, refusing to fetch more.", MaxFetchCountThreshold);
+                    break;
+                }
+                
                 offset = data.Offset;
             } while (!string.IsNullOrEmpty(offset));
 
