@@ -26,7 +26,7 @@ namespace HC.LogProxy.Api.Instrumentation
             {
                 Status = 500,
                 Type = ex.GetType().Name,
-                Title = ex.Message,
+                Title = "Internal server error",
             };
 
             context.Result = new ObjectResult(result)

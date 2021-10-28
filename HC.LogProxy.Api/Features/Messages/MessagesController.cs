@@ -23,6 +23,7 @@ namespace HC.LogProxy.Api.Features.Messages
         /// <summary>
         /// Gets all log records
         /// </summary>
+        /// <response code="200">Returns log data</response>
         /// <param name="cancellationToken">Abort token</param>
         /// <returns>Returns all log records</returns>
         [HttpGet("")]
@@ -44,6 +45,7 @@ namespace HC.LogProxy.Api.Features.Messages
         /// <summary>
         /// Inserts single log record
         /// </summary>
+        /// <response code="204">Log record successfully created</response>
         /// <param name="request">Insert single log instance</param>
         /// <param name="cancellationToken">Abort token</param>
         /// <returns></returns>

@@ -1,5 +1,9 @@
 # HC.LogProxy
 
+
+## Requirements
+Docker or Dotnet SDK 5.0
+
 ## Running in Docker
 ```sh
 docker pull meyhem/hclogproxy:latest
@@ -14,5 +18,4 @@ cd HcLogProxyPackage
 dotnet HC.LogProxy.Api.dll
 ```
 
-## Swagger
-```http://localhost/swagger/index.html```
+After running app, visit ```http://localhost/swagger/index.html``` for Swagger docs.
