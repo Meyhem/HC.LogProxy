@@ -6,5 +6,7 @@ namespace HC.LogProxy.Configuration
     {
         public string LogServerApiKey { get; set; }
         public Uri LogServerUri { get; set; }
+
+        public User[]? Users { get; set; }
     }
 }

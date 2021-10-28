@@ -18,4 +18,10 @@ cd HcLogProxyPackage
 dotnet HC.LogProxy.Api.dll
 ```
 
-After running app, visit ```http://localhost/swagger/index.html``` for Swagger docs.
+## Testing
+After running app, visit ```http://localhost/swagger/index.html``` for Swagger docs.  
+Preconfigured user for basic auth:
+```
+user1
+password1
+```
