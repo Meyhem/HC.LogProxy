@@ -23,8 +23,8 @@ namespace HC.LogProxy.Api.Features.Messages
         /// <summary>
         /// Gets all log records
         /// </summary>
-        /// <param name="cancellationToken"></param>
-        /// <returns></returns>
+        /// <param name="cancellationToken">Abort token</param>
+        /// <returns>Returns all log records</returns>
         [HttpGet("")]
         [ProducesResponseType(typeof(LogRecord[]), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAsync(CancellationToken cancellationToken)
@@ -44,8 +44,8 @@ namespace HC.LogProxy.Api.Features.Messages
         /// <summary>
         /// Inserts single log record
         /// </summary>
-        /// <param name="request"></param>
-        /// <param name="cancellationToken"></param>
+        /// <param name="request">Insert single log instance</param>
+        /// <param name="cancellationToken">Abort token</param>
         /// <returns></returns>
         [HttpPost("")]
         [Consumes("application/json")]

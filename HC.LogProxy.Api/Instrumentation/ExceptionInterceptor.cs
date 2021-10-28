@@ -15,13 +15,13 @@ namespace HC.LogProxy.Api.Instrumentation
         {
             this.logger = logger;
         }
-        
+
         public void OnException(ExceptionContext context)
         {
             var ex = context.Exception;
-            
+
             logger.LogError(ex, "Unhandled error");
-            
+
             var result = new ProblemDetails
             {
                 Status = 500,
@@ -33,6 +33,7 @@ namespace HC.LogProxy.Api.Instrumentation
             {
                 StatusCode = result.Status
             };
+
             context.ExceptionHandled = true;
         }
     }

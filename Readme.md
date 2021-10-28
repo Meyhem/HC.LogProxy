@@ -13,3 +13,6 @@ dotnet publish --configuration Release --output HcLogProxyPackage
 cd HcLogProxyPackage
 dotnet HC.LogProxy.Api.dll
 ```
+
+## Swagger
+```http://localhost/swagger/index.html```
