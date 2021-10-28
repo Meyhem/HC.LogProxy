@@ -41,6 +41,7 @@ namespace HC.LogProxy.Api
 
             services.AddLogProxy();
             services.AddTransient<IDateTimeOffsetProvider, DateTimeOffsetProvider>();
+            services.AddTransient<IIdentifierProvider, IdentifierProvider>();
             
             services.AddSwaggerGen(c =>
             {

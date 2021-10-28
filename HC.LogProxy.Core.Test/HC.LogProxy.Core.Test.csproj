@@ -22,6 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\HC.LogProxy.Core\HC.LogProxy.Core.csproj" />
       <ProjectReference Include="..\HC.LogProxy.Dal\HC.LogProxy.Dal.csproj" />
       <ProjectReference Include="..\HC.LogProxy.Shared\HC.LogProxy.Shared.csproj" />
     </ItemGroup>

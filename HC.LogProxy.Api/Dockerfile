@@ -10,6 +10,7 @@ RUN dotnet restore "HC.LogProxy.Api/HC.LogProxy.Api.csproj"
 COPY . .
 WORKDIR "/src/HC.LogProxy.Api"
 RUN dotnet build "HC.LogProxy.Api.csproj" -c Release -o /app/build
+RUN dotnet test
 
 FROM build AS publish
 RUN dotnet publish "HC.LogProxy.Api.csproj" -c Release -o /app/publish

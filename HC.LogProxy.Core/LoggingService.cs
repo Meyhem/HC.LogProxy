@@ -13,11 +13,16 @@ namespace HC.LogProxy.Core
     {
         private readonly ILogRepository logRepository;
         private readonly IDateTimeOffsetProvider dateTimeOffsetProvider;
+        private readonly IIdentifierProvider identifierProvider;
 
-        public LoggingService(ILogRepository logRepository, IDateTimeOffsetProvider dateTimeOffsetProvider)
+        public LoggingService(
+            ILogRepository logRepository, 
+            IDateTimeOffsetProvider dateTimeOffsetProvider, 
+            IIdentifierProvider identifierProvider)
         {
             this.logRepository = logRepository;
             this.dateTimeOffsetProvider = dateTimeOffsetProvider;
+            this.identifierProvider = identifierProvider;
         }
 
         public async Task CreateLogAsync(CreateLogRecordDto createLogRecordDto, CancellationToken ct)
@@ -29,7 +34,7 @@ namespace HC.LogProxy.Core
                     Fields = LogMapper.IntoFields(
                         createLogRecordDto.Title, 
                         createLogRecordDto.Text,
-                        Guid.NewGuid().ToString(), 
+                        identifierProvider.GetUuid(),
                         dateTimeOffsetProvider.GetUtcNow())
                 }
             }, ct);
