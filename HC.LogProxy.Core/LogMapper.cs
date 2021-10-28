@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using HC.LogProxy.Core.Dto;
 using HC.LogProxy.Dal.Dto;
 

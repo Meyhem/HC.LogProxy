@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Threading.Tasks;
 using HC.LogProxy.Dal;
 using HC.LogProxy.Shared;
 using Moq;
-using Xunit;
 
 namespace HC.LogProxy.Core.Test.LoggingServiceTests
 {

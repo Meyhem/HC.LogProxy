@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using FluentAssertions;
 using HC.LogProxy.Core.Dto;
 using HC.LogProxy.Dal.Dto;
-using Moq;
 using Xunit;
 
 namespace HC.LogProxy.Core.Test.LoggingServiceTests
